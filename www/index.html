@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Bucket Hub</title>
+  <meta charset="utf-8" />
+  <base href="/">
+  <!-- Common packages: jQuery, Bootstrap, jsTree -->
+  <link rel="shortcut icon" href="./images/neilsoft_icon.ico" type="image/x-icon" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+  <!-- Autodesk Forge Viewer files -->
+  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/style.min.css?v=v6.0" type="text/css">
+  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/viewer3D.min.js?v=v6.0"></script>
+  <!-- Viewer production -->
+  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/three.min.js?v=v3.3.*"></script>
+
+
+  <script src="/extensions/Viewing.Extension.Markup3D.min.js"></script>
+  <script src="/extensions/Viewing.Extension.Transform.min.js"></script>
+  <script src="/extensions/_Viewing.Extension.ControlSelector.min.js"></script>
+
+  <!-- this project files -->
+  <link href="./css/main.css" rel="stylesheet" />
+  <script src="./js/Forge.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img src="./images/neilsoft_logo.png" width="150px">
+        </a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Forge Viewer</a></li>
+        <li><a href="#">Potree Viewer</a></li>
+        <li><a href="#">PhotosTo3D</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- End of navbar -->
+
+  <div class="container-fluid fill">
+    <div class="row fill">
+      <div class="col-sm-4 fill">
+        <div class="panel panel-default fill">
+          <div class="panel-heading" data-toggle="tooltip">
+            Buckets &amp; Objects
+            <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
+            <button class="btn btn-sm btn-danger" style="float: right;margin-bottom: 8px;" id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">
+              <span class="glyphicon glyphicon-folder-close"></span> Add bucket
+            </button>
+          </div>
+          <div id="appBuckets">
+            All Buckets:tree here
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-sm-8 fill">
+        <div id="forgeViewer"></div>
+        <div id="hiddenDiv" style="display:hidden;">
+          <div class="centered"><h1 data-text="Forge Viewer">Forge Viewer</h1>Upload new file (supported formats .3ds, .rvt, .dwfx) or open existing..</div>
+        </div>
+        
+      </div>
+     
+    </div>
+   
+  </div>
+
+   <!-- Modal Create Bucket -->
+   <div class="modal fade" id="createBucketModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cancel">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Create new bucket</h4>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="newBucketKey" class="form-control"> For demonstration purposes, objects (files) 
+          are NOT automatically translated. After you upload, right click on
+          the object and select "Translate".
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="createNewBucket">Go ahead, create the bucket</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

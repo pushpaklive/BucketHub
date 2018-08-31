@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Bucket Hub</title>
+  <meta charset="utf-8" />
+  <base href="/">
+  <!-- Common packages: jQuery, Bootstrap, jsTree -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+  <!-- Autodesk Forge Viewer files -->
+  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/style.min.css?v=v6.0" type="text/css">
+  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/viewer3D.min.js?v=v6.0"></script>
+  <!-- this project files -->
+  <link href="./css/main.css" rel="stylesheet" />
+  <script src="./js/Forge.js"></script>
+</head>
+
+<body>
+  <!-- Fixed navbar by Bootstrap: https://getbootstrap.com/examples/navbar-fixed-top/ -->
+ 
+  <!-- End of navbar -->
+  <div class="container-fluid fill">
+    <div class="row fill">
+      <div class="col-sm-4 fill">
+        <div class="panel panel-default fill">
+          <div class="panel-heading" data-toggle="tooltip">
+            Buckets &amp; Objects
+            <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
+            <button class="btn btn-xs btn-info" style="float: right" id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">
+              <span class="glyphicon glyphicon-folder-close"></span> New bucket
+            </button>
+          </div>
+          <div id="appBuckets">
+            All Buckets:tree here
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8 fill">
+        <div id="forgeViewer"></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
